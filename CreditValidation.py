@@ -97,7 +97,7 @@ def luhn_driver():
     """
     q = False
     while not q:
-        print "Please Enter Credit Card Number"
+        print "Please Enter Credit Card Number (no spaces)"
         credit_number = raw_input()
         if int(credit_number) == 0:
             print "Card Number Is Not Valid"
@@ -119,3 +119,4 @@ def luhn_driver():
                 q = True
 
 
+luhn_driver()
