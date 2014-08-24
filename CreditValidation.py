@@ -100,7 +100,7 @@ def luhn_driver():
         print "Please Enter Credit Card Number (no spaces)"
         credit_number = raw_input()
         if int(credit_number) == 0:
-            print "Card Number Is Not Valid"
+            print "Please Enter A 16 Digit Credit Card Number"
         else:
             card = luhn_check_card(credit_number)
             if card == 0 :
