@@ -118,5 +118,4 @@ def luhn_driver():
             else:
                 q = True
 
-luhn_driver()
 
