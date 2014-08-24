@@ -21,17 +21,17 @@ def check_credit_type(credit_card):
 
     # Determines the card type by checking the first few digits
     if int(numbers[0]) == 4:
-        return "It is a Visa Card"
+        return "It is a Visa Card."
     elif int(numbers[0]) == 3 and int(numbers[1] == 4) or int(numbers[0]) == 3 and int(numbers[1]) == 7:
-        return "It is an American Express Card"
+        return "It is an American Express Card."
     elif int(numbers[0]) == 6 and int(numbers[1]) == 0 and int(numbers[2]) == 1 and int(numbers[3]) == 1:
-        return "It is a Discover Card"
+        return "It is a Discover Card."
     elif int(numbers[0]) == 6 and int(numbers[1]) == 4 and int(numbers[2]) == 4:
-        return "It is a Discover Card"
+        return "It is a Discover Card."
     elif int(numbers[0]) == 5 and int(numbers[1]) == 5:
-        return "It is a Discover Card"
+        return "It is a Discover Card."
     elif int(numbers[0] == 5 and (int(numbers[1]) == 1 or int(numbers[1]) == 2 or int(numbers[1]) == 3 or int(numbers[1]) == 4) or int(numbers[1]) == 4):
-        return "It is a MasterCard"
+        return "It is a MasterCard."
 
 
 
