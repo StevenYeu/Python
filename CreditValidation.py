@@ -60,7 +60,6 @@ def luhn_check_card(credit_card):
 
     #double every even placed digit
     for ch in num:
-        # n = int(num.pop()) * 2
         n = int(ch) * 2
         doubles.append(n)
 
@@ -96,12 +95,18 @@ def luhn_driver():
     This is the driver for
     the application.
     """
-    q = False
-    while not q:
-        print "Please Enter Credit Card Number (no spaces)."
-        credit_number = raw_input()
-        if int(credit_number) == 0:
-            print "Please Enter A 16 Digit Credit Card Number."
+    program_flag = False
+    error_flag = False
+    while not program_flag:
+        if not error_flag:
+            print "Please Enter Credit Card Number (no spaces)."
+            credit_number = raw_input()
+        else:
+            print "Error: Please Enter A 16 Digit Credit Card Number (no spaces)."
+            credit_number = raw_input()
+
+        if len(credit_number) != 16:
+            error_flag = True
         else:
             card = luhn_check_card(credit_number)
             if card == 0 :
@@ -115,9 +120,10 @@ def luhn_driver():
             print "2. Quit"
             user_input = raw_input()
             if user_input == "1" :
-                q = False
+                program_flag = False
+                error_flag = False
             else:
-                q = True
+                program_flag = True
 
 
 luhn_driver()
