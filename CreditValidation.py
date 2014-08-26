@@ -32,6 +32,8 @@ def check_credit_type(credit_card):
         return "It is a Discover Card."
     elif int(numbers[0] == 5 and (int(numbers[1]) == 1 or int(numbers[1]) == 2 or int(numbers[1]) == 3 or int(numbers[1]) == 4) or int(numbers[1]) == 4):
         return "It is a MasterCard."
+    else:
+        return "Sorry Do Not Know Credit Card Type"
 
 
 
@@ -43,42 +45,41 @@ def luhn_check_card(credit_card):
     :param credit_card: Type String
     :return:
     """
-    numbers = [0] * 16
-
+    numbers = []
     # Store digits into list
     for digit in credit_card:
         numbers.append(digit)
+
 
     # store every even placed digit
     num = numbers[::2]
 
     # store evey odd placed digit
     odd_num = numbers[1:len(numbers):2]
-    doubles = [0] * 8
+    doubles = []
 
     #double every even placed digit
     for ch in num:
-        n = int(num.pop()) * 2
+        # n = int(num.pop()) * 2
+        n = int(ch) * 2
         doubles.append(n)
 
-    even_digits = [0] * 8
+    even_digits = []
     # for evey digit doubled
     # if the result is a two digit number
     # sum the two digits to make a one digit number
-    for y in doubles:
-        check_digit = doubles.pop()
-        string_digit = str(check_digit)
-        if int(check_digit) >= 10:
-            two_digits = [0] * 2
-            for nums in string_digit:
-                two_digits.append(nums)
-
-            first_digit = int(two_digits.pop())
-            second_digit = int(two_digits.pop())
+    for even in doubles:
+        if even >= 10:
+            two_digit = []
+            string_digit = str(even)
+            for digits in string_digit:
+                two_digit.append(digits)
+            first_digit = int(two_digit.pop())
+            second_digit = int(two_digit.pop())
             summed_digit = first_digit + second_digit
             even_digits.append(summed_digit)
         else:
-            even_digits.append(check_digit)
+            even_digits.append(even)
 
     # Sum the even and odd placed digits
     even_digits = [int(m) for m in even_digits]
@@ -120,3 +121,4 @@ def luhn_driver():
 
 
 luhn_driver()
+
